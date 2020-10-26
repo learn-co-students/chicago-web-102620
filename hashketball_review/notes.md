@@ -23,6 +23,7 @@
 ### Terms
 
 abstraction - the process of creating accessible interfaces which obscure complex behaviors
+single responsibility principle - every method/class/file/directory should be focused and be responsible for one thing only
 
 ## Icebox
 
