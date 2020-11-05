@@ -9,4 +9,23 @@
 
 ## Questions
 
-- What's the difference between a model, class, and table?
+## Notes
+
+### ActiveRecord Rake Commands
+
+db:create
+db:create_migration - will create a new migration file in the db/migrate/ directory
+db:migrate
+db:drop
+db:rollback
+
+### ActiveRecord::Base Methods
+
+- `Model.new`
+- `Model.save`
+- `Model.create`
+- `Model.all`
+- `Model.first`
+- `Model.find`
+- `Model.find_by(title: "The Lorax")`
+- `Model#update()`

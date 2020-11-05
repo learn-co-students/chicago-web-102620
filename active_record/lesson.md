@@ -126,3 +126,9 @@ class Book < ActiveRecord::Base
 
 end
 ```
+
+The only difference now in implementation is how we pass arguments. We now must use keyword arguments. ActiveRecord depends on these more descriptive args to allow more flexibility when creating and updating records.
+
+```ruby
+book = Book.new(title: "The Shining", description: "haunted hotel and big yikes")
+```
