@@ -2,7 +2,7 @@
 
 ## MCV Architecture
 
-MVC is one of many common programming paradigms. It's important to note that it's not necessarily better or worse than others, only that it is useful for building web apps and APIs.
+MVC is one of many common programming paradigms. It"s important to note that it"s not necessarily better or worse than others, only that it is useful for building web apps and APIs.
 
 MVC applications are typically organized into three main parts:
 
@@ -37,7 +37,7 @@ Controllers connect our user, models, and views through routes.
 
 ### CRUD
 
-We're familiar with the common CRUD actions: create, read, update, and destroy.
+We"re familiar with the common CRUD actions: create, read, update, and destroy.
 
 ### REST
 
@@ -62,7 +62,7 @@ REST uses HTTP verbs and discrete "resources" to enforce these principles.
 
 Why Sinatra?
 
-- `rack` alone can be messy. It's very flexible but requires a lot of manual set up and configuration
+- `rack` alone can be messy. It"s very flexible but requires a lot of manual set up and configuration
 - `sinatra` constrains how we interface with our server, we sacrifice some customizability in favor of convention to save time and promote consistency
 
 ### Create a `home` route
@@ -70,17 +70,17 @@ Why Sinatra?
 ```ruby
 # application_controller.rb
 
-get '/' do
+get "/" do
     erb :home
 end
 ```
 
-oops, sinatra doesn't know where to find out views
+oops, sinatra doesn"t know where to find out views
 
 ```ruby
-    set :views, 'app/views'
+    set :views, "app/views"
 
-    get '/' do
+    get "/" do
         erb :home
     end
 ```
@@ -91,7 +91,7 @@ we first need a new route/resource
 
 ```ruby
 # application_controller
-    get '/books' do
+    get "/books" do
         @books = Book.all
 
         erb :index
@@ -116,7 +116,7 @@ add a new resource!
 ```ruby
 # application_controller
 
-get '/books/:id' do
+get "/books/:id" do
     @book = Book.find(params[:id])
 
     erb :show
@@ -136,7 +136,7 @@ and a new view!
 ```ruby
 # application_controller
 
-get '/books/new' do
+get "/books/new" do
 
     erb :new
 end
@@ -166,19 +166,33 @@ and now we need a create resource to catch the forms submit request
 ```ruby
 # application_controller
 
-post '/books' do
-    @book = Book.create(params)
+post "/books" do
+    book = Book.create(params)
 
-    erb :show
+    redirect "/books/#{book.id}"
 end
 ```
 
+> why use the method redirect instead of simply rendering the show view?
+
+By using the `redirect` method we update the url in the browser to reflect the current page. Using the `erb` method will update the view but the url will not correlate.
+
 ### edit a book?
+
+We"ll start by adding a link on the show page to edit a book.
+
+> What route should we link to?
+
+```ruby
+#show.erb
+
+<a href="/books/<%= @book.id %>/edit">edit</a>
+```
 
 ```ruby
 # application_controller
 
-get 'books/:id/edit' do
+get "books/:id/edit" do
     @book = Book.find(params[:id])
 
     erb :edit
@@ -192,13 +206,13 @@ and view, looks a lot like new but we can pre-populate the values so the user ca
 
 <form action="/books/<%= @book.id %>" method="put">
     <label for="title">title</label>
-    <input type="text" name="title" value="<%= @book.id %>">
+    <input type="text" name="title" value="<%= @book.title %>">
 
     <label for="author">author</label>
-    <input type="text" name="author" value="<%= @book.id %>">
+    <input type="text" name="author" value="<%= @book.author%>">
 
     <label for="snippet">snippet</label>
-    <input type="text" name="snippet" value="<%= @book.id %>">
+    <input type="text" name="snippet" value="<%= @book.snippet %>">
 
     <input type="submit" value="Edit Book">
 </form>
@@ -207,7 +221,7 @@ and view, looks a lot like new but we can pre-populate the values so the user ca
 and a put resource
 
 ```ruby
-  put '/books/:id' do
+  put "/books/:id" do
         book = Book.find(params[:id])
 
         book.update(params)
@@ -217,11 +231,11 @@ and a put resource
     end
 ```
 
-uh oh, we don't seem to be hitting our put resource! Actually http only allows get and post requests... what will we do?
+uh oh, we don"t seem to be hitting our put resource! Actually http only allows get and post requests... what will we do?
 
 we need to add a hidden input to tell sinatra we actually want to update
 
-- we use input type `hidden` because this element is not intended for the user, it's intended only for our server
+- we use input type `hidden` because this element is not intended for the user, it"s intended only for our server
 - sinatra expects an attribute with the key `_method` for overriding HTTP actions
 - the value `put` tells sinatra the action we want to override with
 
@@ -241,4 +255,39 @@ and we need to configure our controller to expect this hack by enabling `method_
 
 set :method_override, true
 
+# update
+put "/books/:id" do
+
+# we need to delete the hidden param to avoid an "UnknownAttribute" error
+params.delete("_method")
+
+book = Book.find(params[:id])
+book.update(params)
+
+redirect "/books/#{book.id}"
+end
+```
+
+### Delete a book
+
+And finally, to delete a book we can add a button to the show page by creating a small form
+
+```ruby
+# show.erb
+...
+<form action="/books/<%= @book.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete book">
+</form>
+```
+
+And the controller action.
+
+```ruby
+delete  "/books/:id" do
+    book = Book.find(params[:id])
+    book.delete
+
+    redirect "/books"
+end
 ```
