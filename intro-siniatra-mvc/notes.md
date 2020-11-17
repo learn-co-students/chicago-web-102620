@@ -20,6 +20,8 @@
   - get a list of running processes on a given port `lsof -i tcp:9393`
   - stop a process by a given id `kill -9 <process_id>`
 
+- `@player.name` from a view file vs?
+- what is the `<label>` tag
 
 ## Notes
 
@@ -31,7 +33,7 @@ What is MVC
   - view - user facing interface
   - controller - connects user actions to application behavior
 
-REST
+### REST
 
 - REpresentation State Transfer
 - pattern that provides conventions for sending and receiving messages to a server
@@ -41,9 +43,6 @@ REST
   - read
   - update
   - delete
-
-### REST
-
 
 ## Icebox
 
