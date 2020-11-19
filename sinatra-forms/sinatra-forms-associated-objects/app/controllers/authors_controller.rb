@@ -27,9 +27,8 @@ class AuthorsController < ApplicationController
     end
 
     # edit
-    get "/authors/:id/edit" do |id|
+    get "/authors/:id/edit" do
         @author = Author.find(params[:id])
-        # @author = Author.find(id)
 
         erb :"authors/edit"
     end

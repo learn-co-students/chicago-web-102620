@@ -7,19 +7,16 @@
     <label for="snippet">Snippet</label>
     <input type="text" name="snippet" value="<%= @book.snippet %>"></input>
     
+    <label for="author_id">author_id</label>
     <select name="author_id">
         <% @authors.each do |author| %>
-           <% if @book.author_id == author.id %>
-                <option value="<%= author.id %>" selected="selected">
-                    <%= author.name %>
-                </option>
-           <% else %>
-                <option value="<%= author.id %>">
-                    <%= author.name %>
-                </option>
-           <% end %>
+            <% if author.id == @book.author_id %>
+                <option selected="selected" value="<%= author.id %>"><%= author.name %></option>
+            <% else %>
+                <option value="<%= author.id %>"><%= author.name %></option>
+            <% end %>
         <% end %>
     </select>
     
-    <input type="submit" value="Create Book">
+    <input type="submit" value="Edit Book">
 </form>

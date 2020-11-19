@@ -21,5 +21,4 @@ ActiveRecord::Schema.define(version: 2018_04_04_202221) do
     t.string "title"
     t.string "snippet"
   end
-
 end

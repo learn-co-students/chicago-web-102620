@@ -1,5 +1,7 @@
 <h1><%= @author.name %></h1>
 <% @author.books.each do |book| %>
+  <a href="/books/<%= book.id %>">
     <h3><%= book.title %></h3>
-    <p><%= book.snippet %></p>
+  </a>
+  <p><%= book.snippet %></p>
 <% end %>

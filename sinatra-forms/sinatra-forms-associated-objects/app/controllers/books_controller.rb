@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   # Index
   get '/books' do
-    @books = Book.includes(:author).all
+    @books = Book.all
 
     erb :'books/index'
   end
@@ -15,8 +15,8 @@ class BooksController < ApplicationController
 
   # Show
   get '/books/:id' do
-    @book = Book.includes(:author).find(params[:id])
-
+    @book = Book.find(params[:id])
+    
     erb :'books/show'
   end
 
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   get '/books/:id/edit' do
     @book = Book.find(params[:id])
     @authors = Author.all
-    
+
     erb :"books/edit"
   end
 
@@ -45,6 +45,7 @@ class BooksController < ApplicationController
     redirect "/books/#{book.id}"
   end
 
+  # delete
   delete "/books/:id" do |id|
     Book.find(id).delete
    
