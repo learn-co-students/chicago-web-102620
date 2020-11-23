@@ -1,0 +1,11 @@
+<%= form_for @doctor do |f| %>
+<%# <form action='/doctors' method='post'> %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :specialty %>
+  <%= f.text_field :specialty %>
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+
+  <%= f.submit %>
+<% end %>
