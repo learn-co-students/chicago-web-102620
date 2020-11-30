@@ -1,0 +1,9 @@
+<h1><%= @destination.name %></h1>
+<h4>Recent Posts</h4>
+<% @destination.recent_posts do |post| %>
+  <li><%= post.title %></li>
+<% end %>
+
+<%= link_to "Featured Post: #{@destination.featured_post.title}", post_path(@destination.featured_post) %>
+
+<p>average_age of bloggers: <%= @destination.average_age %>
