@@ -10,13 +10,13 @@
 
 ## Notes
 
-RESTFUL -> stateless
+- RESTful servers are stateless
+  - each request is independent
+  - there's no shared information (state) between requests
 
-- cookies give us temporary storage to create state between requests
-
-### Flash
-
-
+Why not store state in the database
+  
+  - temporary info
+  - would require a bunch of additional models 
+  
 ## Icebox
-
-- configure or view session length/duration

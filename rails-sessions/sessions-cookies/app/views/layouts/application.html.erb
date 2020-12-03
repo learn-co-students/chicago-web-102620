@@ -11,17 +11,17 @@
   </head>
 
   <body>
-    <h3><%= flash[:notice] %></h3>
-
-    <hr>
-
-    <h4>Your Cart: </h4>
-    <ol>
-      <% @cart_items.each do |cart_item| %>
-        <li><%= cart_item.name %></li>
+    <header>
+      <%= flash[:notice] %>
+      <% if @cart_items %>
+        <h3>Cart</h3>
+        <% @cart_items.each do |item| %>
+          <li> <%= item.name %> </li>
+        <% end %>
+      <% else %>
+        <h3>Cart (empty)</h3>
       <% end %>
-    </ol>
-    
+    </header>
     <%= yield %>
   </body>
 </html>

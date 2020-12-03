@@ -1,6 +1,4 @@
 class NachosController < ApplicationController
-  before_action :get_items_from_cart
-
   def index
     @nachos = Nacho.all
   end
@@ -8,4 +6,6 @@ class NachosController < ApplicationController
   def show
     @nacho = Nacho.find(params[:id])
   end
+
+  private
 end

@@ -5,12 +5,7 @@
     <li>
       <%= link_to nacho.name, nacho %>
       $<%= nacho.price %>
-      <%=
-        button_to "Add To Cart",
-        add_to_cart_path,
-        method: :patch,
-        params: { nacho_id: nacho.id, name: nacho.name }
-      %>
     </li>
+    <%= button_to "Add to Cart", add_to_cart_path, method: :patch, params: { nacho_id: nacho.id, name: nacho.name } %>
   </ul>
 <% end %>

@@ -122,3 +122,16 @@ end
 ```
 
 This pattern: `session[:cart] ||= []` is an example of lazy loading. We're telling our program to check for `session[:cart]` in memory. If it doesn't find it, `session[:cart]` returns nil, we then initialize the key with an empty array.
+
+
+<h3><%= flash[:notice] %></h3>
+
+    <hr>
+
+    <h4>Your Cart: </h4>
+    <ol>
+      <% @cart_items.each do |cart_item| %>
+        <li><%= cart_item.name %></li>
+      <% end %>
+    </ol>
+    
