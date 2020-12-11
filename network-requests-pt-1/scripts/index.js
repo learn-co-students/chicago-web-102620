@@ -1,3 +1,38 @@
+// MAKE A FETCH REQUEST TO /POSTS AND GET ALL THE POSTS TO SHOW IN THE PAGE
+const endPoint = "http://localhost:3000/posts";
+
+function makePost(post) {
+  const div = document.createElement("div");
+  const img = document.createElement("img");
+  const p = document.createElement("p");
+
+  img.src = post.url;
+  p.textContent = post.comment;
+  div.append(img, p);
+
+  // document.getElementsByClassName("posts")[0];
+  const postsSection = document.querySelector(".posts");
+  postsSection.append(div);
+}
+
+fetch(endPoint)
+.then((response) => response.json())
+.then((catParties) => {
+  // catParty is an Array of objects
+  catParties.forEach(makePost);
+});
+
+fetch(`${endPoint}/2`)
+.then((res) => res.json())
+.then((post) => {
+  makePost(post);
+});
+
+function myFetch(url, options = {}) {
+  return fetch(url, options)
+  .then(res => res.json())
+}
+
 
 // CODE FROM YESTERDAY
 const form = document.querySelector("form");
@@ -21,24 +56,6 @@ form.addEventListener("submit", function (e) {
   // document.getElementsByClassName("posts")[0];
   const postsSection = document.querySelector(".posts");
   postsSection.append(div);
-});
-
-// event delegation
-const soundsDiv = document.querySelector(".actions");
-
-soundsDiv.addEventListener("click", function (e) {
-  // console.log(e.target, "target");
-  // console.log(e.currentTarget, "current target");
-
-  // if target is how, then howl, etc
-  // another option, if target is a button
-  // grab the button id, then say alert the innerText
-
-  if (e.target.tagName === "BUTTON") {
-    alert(e.target.id);
-  } else {
-    console.log('just cuz');
-  }
 });
 
 /* 
