@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS Events</title>
   <link rel="stylesheet" href="./styles/index.css">
-  <script src="./scripts/index.js"></script>
+  <script defer src="./scripts/index.js"></script>
 </head>
 <body>
   <h1>Put a cat Gif on it</h1>
@@ -14,12 +14,12 @@
     <form>
       <div>
         <label for="gif-url">Gif URL</label>
-        <input type="text" id="gif-url">
+        <input type="text" id="gif-url" name="url">
       </div>
       
       <div>
         <label for="comment">Comment</label>
-        <input type="text" id="comment">
+        <input type="text" id="comment" name="comment">
       </div>
 
       <input type="submit" value="Post">
