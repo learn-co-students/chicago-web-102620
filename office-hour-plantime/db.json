@@ -52,6 +52,18 @@
       "plantId": 3,
       "comment": "I wanna know the solutions to the mysteries",
       "user": "xanadu"
+    },
+    {
+      "plantId": 1,
+      "user": "Derick",
+      "comment": "I like plants",
+      "id": 7
+    },
+    {
+      "plantId": 3,
+      "user": "Bart",
+      "comment": "I love plants",
+      "id": 8
     }
   ]
 }

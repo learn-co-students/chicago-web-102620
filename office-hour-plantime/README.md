@@ -1,5 +1,7 @@
 # plANtIME
 
+MAKE IT FORKABLE
+
 Today, we'll be building out an app that displays anime plants from a database.
 
 ## Setup
