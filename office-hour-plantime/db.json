@@ -1,0 +1,57 @@
+{
+  "plants": [
+    {
+      "id": 1,
+      "url": "https://static.wikia.nocookie.net/fairytail/images/c/c7/Grow_Flow.png",
+      "name": "Magic Pants"
+    },
+    {
+      "id": 2,
+      "url": "https://i.pinimg.com/474x/38/91/83/38918390e12f3d5d1790df126e570da5.jpg",
+      "name": "Sparkles the Clown"
+    },
+    {
+      "id": 3,
+      "url": "https://cdn.animenewsnetwork.com/thumbnails/fit600x1000/cms/feature/112323/wolfs_rain_chasing_flowers1.jpg",
+      "name": "Glowing Mystery"
+    }
+  ],
+  "feed": [
+    {
+      "id": 1,
+      "plantId": 1,
+      "comment": "It's so beautiful I could cries",
+      "user": "Bred Patt"
+    },
+    {
+      "id": 2,
+      "plantId": 1,
+      "comment": "All the tears of joy have fallen like the rain upon the plain",
+      "user": "tenderP0et"
+    },
+    {
+      "id": 3,
+      "plantId": 1,
+      "comment": "I don't understand the feels, like, it's a drawing",
+      "user": "xanadu"
+    },
+    {
+      "id": 4,
+      "plantId": 2,
+      "comment": "I like shiny things, so distracting...meow",
+      "user": "xanadu"
+    },
+    {
+      "id": 5,
+      "plantId": 2,
+      "comment": "Mine eyes! Mine eyes!",
+      "user": "purrghetti_catbanana"
+    },
+    {
+      "id": 6,
+      "plantId": 3,
+      "comment": "I wanna know the solutions to the mysteries",
+      "user": "xanadu"
+    }
+  ]
+}
