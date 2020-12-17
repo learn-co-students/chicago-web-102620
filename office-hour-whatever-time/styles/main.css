@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Pompiere&display=swap');
+
+body {
+  max-width: 890px;
+  min-width: 780px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2.75em;
+  text-align: center;
+  padding: 30px 0;
+  font-family: Pompiere;
+  letter-spacing: 12px;
+}
+
+h2 {
+  font-size: 0.9em;
+}
+
+nav ul {
+  text-align: center;
+}
+
+nav li {
+  width: 150px;
+  display: inline-block;
+  padding: 30px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1.25em;
+  cursor: pointer;
+}
+
+form {
+  width: 300px;
+  float: left;
+  margin-left: 30px;
+  background-color: #c6abd1;
+  height: 200px;
+  padding: 30px;
+}
+
+input[type="text"] {
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 1.25em;
+  font-family: sans-serif;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  font-size: 1.25em;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #4f466d;
+  padding: 10px;
+  margin-top: 15px;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.feed {
+  float: right;
+  width: 350px;
+  background-color: #96e6fd;
+  margin-right: 30px;
+  padding: 15px;
+  box-sizing: border-box;
+  height: auto;
+}
+
+.feed li {
+  background-color: #fff;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+.feed h2 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: #236e80;
+}
