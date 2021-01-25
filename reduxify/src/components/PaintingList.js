@@ -15,19 +15,6 @@ class PaintingList extends React.Component {
     })
   }
 
-  handleVote = (id) => {
-    const updatedPaintings = this.state.paintings.map(p => {
-          if (p.id !== id) {
-            return p;
-          } else {
-            return { ...p, votes: p.votes + 1 };
-          }
-    })
-
-    this.setState({
-      paintings: updatedPaintings
-    })
-  }
 
   renderPaintings = () => {
     return this.props.paintings.map(p => (
@@ -36,7 +23,6 @@ class PaintingList extends React.Component {
   }
 
   render() {
-    console.log(this.props, '------');
     return (
         <div>
             <div>
@@ -53,6 +39,10 @@ class PaintingList extends React.Component {
 // - returns an obj with key/val pairs
 // - those key/val pairs become props on the component that is being connected
 
+
+
+
+
 const mapStateToProps= (storeState) => {
   return {
     paintings: storeState.paintings
@@ -60,12 +50,12 @@ const mapStateToProps= (storeState) => {
 }
 
 
-const writeAccess = {
+const mapDispatchToProps = {
   fetchPaintingsSuccess: fetchPaintingsSuccess
 }
 
 
-export default connect(mapStateToProps, writeAccess)(PaintingList);
+export default connect(mapStateToProps, mapDispatchToProps)(PaintingList);
 
 
 

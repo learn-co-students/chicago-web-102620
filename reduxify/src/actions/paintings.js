@@ -13,3 +13,19 @@ export const fetchPaintingsSuccess = (paintings) => {
     paintings: paintings
   }
 }
+
+
+
+export const upVote = (id) => {
+  return {
+    type: 'UPVOTE',
+    id: id
+  }
+}
+
+export const deletePainting = (id) => {
+  return {
+    type: 'DELETE_PAINTING',
+    id: id
+  }
+}
